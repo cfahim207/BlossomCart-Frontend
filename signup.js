@@ -31,6 +31,8 @@ const handleregistration = (event) => {
                     if (data) {
                         document.getElementById("error").innerText =
                             "Please Check Your Email For Confirmation";
+                        alert("Please Check Your Email For Confirmation");
+                        
                     }
                 });
         } else {

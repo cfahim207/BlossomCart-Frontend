@@ -1657,7 +1657,7 @@ section,
 
 
 #arrowmenu:hover{
-  color: rgb(206, 2, 2);
+  color: rgb(206, 2, 2); 
 
 }
 
@@ -1706,7 +1706,6 @@ section,
     text-align: center;
     border-radius: 20px;
     background-color:#F50057;
-    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
