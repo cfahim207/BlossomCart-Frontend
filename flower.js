@@ -60,7 +60,7 @@ const displayflower = (flowers) => {
 // load Category
 
 const loadCategory = () => {
-  fetch("http://blossomcart.onrender.com/flower/category/")
+  fetch("https://blossomcart.onrender.com/flower/category/")
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
