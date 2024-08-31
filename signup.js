@@ -9,7 +9,7 @@ const handleregistration = (event) => {
     const confirm_password = getinfo("confirm_password");
 
     const info = {
-        username, first_name, last_name, email,mobile_no, password, confirm_password,
+        username, first_name, last_name, email, mobile_no, password, confirm_password,
     };
 
     if (password === confirm_password) {
