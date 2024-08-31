@@ -122,7 +122,7 @@ const handledeposit = (event) => {
     if (token) {
 
         if (amount >= 500) {
-            fetch("http://blossomcart.onrender.com/coustomer/deposite/", {
+            fetch("https://blossomcart.onrender.com/coustomer/deposite/", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(data),
