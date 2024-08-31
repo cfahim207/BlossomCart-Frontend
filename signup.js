@@ -4,7 +4,7 @@ const handleregistration = (event) => {
     const first_name = getinfo("first_name");
     const last_name = getinfo("last_name");
     const email = getinfo("email");
-    const mobile_no = getinfo("mobile_no");
+    const mobile_no = getinfo("mobile");
     const password = getinfo("password");
     const confirm_password = getinfo("confirm_password");
 
