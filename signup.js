@@ -4,13 +4,12 @@ const handleregistration = (event) => {
     const first_name = getinfo("first_name");
     const last_name = getinfo("last_name");
     const email = getinfo("email");
-    const image = getinfo("image");
-    const mobile = getinfo("mobile");
+    const mobile_no = getinfo("mobile");
     const password = getinfo("password");
     const confirm_password = getinfo("confirm_password");
 
     const info = {
-        username, first_name, last_name, email,image,mobile, password, confirm_password,
+        username, first_name, last_name, email,mobile_no, password, confirm_password,
     };
 
     if (password === confirm_password) {
@@ -20,7 +19,7 @@ const handleregistration = (event) => {
                 password
             )
         ) {
-
+            console.log(JSON.stringify(info));
             fetch("https://blossomcart.onrender.com/coustomer/register/", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
@@ -28,6 +27,8 @@ const handleregistration = (event) => {
             })
                 .then((res) => res.json())
                 .then((data) => {
+                    
+                    console.log(data);
                     if (data) {
                         document.getElementById("error").innerText =
                             "Please Check Your Email For Confirmation";
