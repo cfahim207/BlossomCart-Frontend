@@ -138,7 +138,7 @@ const handlecontact = (event) => {
   const info = {
     name,phone,problem,
   };
-  fetch("http://blossomcart.onrender.com/contact_us/", {
+  fetch("https://blossomcart.onrender.com/contact_us/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(info),
