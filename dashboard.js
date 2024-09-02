@@ -204,10 +204,10 @@ const loadProfile = (items) => {
     parent.innerHTML = `
        <img src="images/profile.webp" alt="Profile Picture" class="profile-img">
                 <div class="profile-info">
-                    <h5>${items.username}</h5>
-                    <h2>${items.first_name} ${items.last_name}</h2>
-                    <p>${items.email}</p>
-                    <p>${items.date_joined}</p>
+                    <h5>Username: ${items.username}</h5>
+                    <h2>Name: ${items.first_name} ${items.last_name}</h2>
+                    <p>Email: ${items.email}</p>
+                    <p>Created On: ${items.date_joined}</p>
                 </div>
     `;
     
