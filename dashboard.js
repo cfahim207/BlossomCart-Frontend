@@ -2,7 +2,7 @@
 const handleUser = () => {
     const token = localStorage.getItem("token");
 
-    fetch('http://127.0.0.1:8000/coustomer/userdetails/', {
+    fetch('https://blossomcart.onrender.com/coustomer/userdetails/', {
         method: 'GET',
         headers: {
             'Authorization': `Token ${token}`,
@@ -34,7 +34,7 @@ const handleUser = () => {
 const handleAdminDashboard = () => {
     const token = localStorage.getItem("token");
     
-    fetch("http://127.0.0.1:8000/coustomer/dashboard/", {
+    fetch("https://blossomcart.onrender.com/coustomer/dashboard/", {
         method: "GET",
         headers: {
             'Authorization': `Token ${token}`,
@@ -58,7 +58,7 @@ const handleAdminDashboard = () => {
 const loadUserDashboard = () => {
     const token = localStorage.getItem("token");
 
-    fetch("http://127.0.0.1:8000/coustomer/dashboard/", {
+    fetch("https://blossomcart.onrender.com/coustomer/dashboard/", {
         method: "GET",
         headers: {
             'Authorization': `Token ${token}`,
