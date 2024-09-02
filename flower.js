@@ -46,6 +46,7 @@ const displayflower = (flowers) => {
                   <b>Rs. ${flower.price} </b>
                 </h6>
                  <button onclick="handleOrder(${flower.id})" class="btn btn-danger"><b> Buy Now</b></button>
+                 <button onclick="handlereview()" class="btn"><b>Give Review</b></button>
               </div>
               
         
@@ -188,10 +189,34 @@ const displayCoustomer = (items) => {
 const coustomer_id = localStorage.getItem("coustomer_id");
 if (coustomer_id) {
   loadCoustomer(coustomer_id);
+  
 }
 else {
   document.getElementById("coustomer_info").innerHTML = "Welcome To BlossomCart!!";
 }
+
+
+const token = localStorage.getItem("token");
+if (token) {
+  document.getElementById("dropdownmenu").innerHTML = `
+    <li><a id="arrowmenu" class="dropdown-item" href="deposit.html">Deposit</a></li>
+    <li><a id="arrowmenu" class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+    <li><a onclick="handlelogOut()" id="arrowmenu" class="dropdown-item" href="#">logout</a></li>
+  `;
+}
+else {
+  document.getElementById("dropdownmenu").innerHTML = `
+  <li><a id="arrowmenu" class="dropdown-item" href="signup.html">Sign Up</a></li>
+  <li> <a id="arrowmenu" class="dropdown-item" href="login.html">Login</a></li >
+  `;
+}
+
+
+
+
+
+
+
 
 loadFlower();
 loadCategory();
