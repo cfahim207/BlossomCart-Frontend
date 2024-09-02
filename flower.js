@@ -178,7 +178,7 @@ const displayCoustomer = (items) => {
     const li = document.createElement("li");
     li.classList.add("pt-3","coustomer");
     li.innerHTML = `
-        <span class="text-danger">Welcome ${item.user} !!</span>    ( balance : ${item.balance} )
+        <span class="text-danger"> <b>Welcome ${item.user} <b/> !!</span>    ( balance : ${item.balance} )
   `;
     parent.appendChild(li);
   });
@@ -191,9 +191,7 @@ if (coustomer_id) {
   loadCoustomer(coustomer_id);
   
 }
-else {
-  document.getElementById("coustomer_info").innerHTML = "Welcome To BlossomCart!!";
-}
+
 
 
 const token = localStorage.getItem("token");

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>BlossomCart</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+    <style>
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-info p {
+            margin-bottom: 15px;
+            color: gray;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <!-- <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet"> -->
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+ 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        
+          <img src="images/navicon.png" alt="">
+        <h1 class="sitename">BlossomCart</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Flower</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      
+      <ul id="coustomer_info" class="">
+          
+      </ul>
+      
+
+      
+                      <div class="dropdown">
+  <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa-regular fa-user btn-getstarted"></i>
+  </button>
+  <ul id="dropdownmenu" class="dropdown-menu">
+
+  </ul>
+</div>
+
+
+    </div>
+  </header>
+
+
+<!-- Coustomer Informantion -->
+
+<h1 class="mt-5 mb-5 text-center text-danger"><b>Welcome To Dashboard !!</b></h1>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div id="profile" class="col-md-8 text-center">
+                
+
+                <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="customer-tab" data-bs-toggle="tab" href="#customer" role="tab" aria-controls="customer" aria-selected="false">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="flower-tab" data-bs-toggle="tab" href="#flower" role="tab" aria-controls="flower" aria-selected="false">Flower</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="deposit-tab" data-bs-toggle="tab" href="#deposit" role="tab" aria-controls="deposit" aria-selected="false">Deposit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contactus-tab" data-bs-toggle="tab" href="#contactus" role="tab" aria-controls="contactus" aria-selected="false">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content pt-3" id="profileTabContent">
+                    <div class="tab-pane fade show active" id="customer" role="tabpanel" aria-labelledby="customer-tab">
+                        <h4>Customers</h4>
+            <p>Manage all customer details here.</p>
+
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Image</th>
+      <th scope="col">Balance</th>
+    </tr>
+  </thead>
+  <tbody id="Coustomers">
+    
+    
+  </tbody>
+</table>
+                    </div>
+                    <div class="tab-pane fade show active" id="flower" role="tabpanel" aria-labelledby="flower-tab">
+                         <h4>Flowers</h4>
+            <p>Manage flowers inventory here.</p>
+            <!-- Flowers table or inventory -->
+                           <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Color</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody id="flowerDetails">
+    
+    
+  </tbody>
+</table>
+                    </div>
+                    <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                        <h4>Order History</h4>
+            <p>Review order history here.</p>
+            <!-- Order history table -->
+
+                   <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Flower Id</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Order Status</th>
+      <th scope="col">Cancel</th>
+    </tr>
+  </thead>
+  <tbody id="orders">
+   
+    
+  </tbody>
+</table>
+                    </div>
+                    <div class="tab-pane fade" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">
+                        <h4>Deposit History</h4>
+            <p>Manage deposit transactions here.</p>
+            <!-- Deposit history table -->
+
+             <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Coustomer</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody id="deposits">
+    
+    
+  </tbody>
+</table>
+                    </div>
+                    <div class="tab-pane fade" id="contactus" role="tabpanel" aria-labelledby="contactus-tab">
+                         <h4>Contact Messages</h4>
+            <p>View and respond to contact messages here.</p>
+            <!-- Contact messages list -->
+
+                               <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Message</th>
+      
+    </tr>
+  </thead>
+  <tbody id="contactUs">
+    
+    
+  </tbody>
+</table>
+                    </div>
+                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                        <h4>Reviews</h4>
+            <p>Adjust site Review here.</p>
+            <!-- Review form -->
+
+                           <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Reviewer</th>
+      <th scope="col">Image</th>
+      <th scope="col">Flower</th>
+      <th scope="col">Review</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Time</th>
+      
+    </tr>
+  </thead>
+  <tbody id="AllReview">
+    
+    
+  </tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>Bosila Road</p>
+            <p>Keraniganj, Dhaka</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+880 1306166336</span><br>
+              <strong>Email:</strong> <span>cfahim207@gmail.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">BlossomCart</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <p>Fahim Chowdhury</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="flower.js"></script>
+  <script src="signup.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="order.js"></script>
+  <script src="assets/js/main.js"></script>

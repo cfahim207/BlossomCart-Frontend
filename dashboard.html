@@ -85,7 +85,31 @@
                 display: block;
             }
         }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-info p {
+            margin-bottom: 15px;
+            color: gray;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: #fff;}
     </style>
+
+    
 </head>
 <body class="light-mode">
     <!-- Toggle Button for Sidebar -->
@@ -93,13 +117,14 @@
 
     <!-- Sidebar -->
     <div class="sidebar light-mode" id="sidebar">
-        <h4>Admin Dashboard</h4>
+        <h4 id="admin_user"></h4>
+        <hr>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link active" href="#" onclick="showSection('profile')">Profile</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#" onclick="showSection('customers')">Customers</a>
+            <li id="customer_user" class="nav-item">
+               
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="showSection('orderHistory')">Order History</a>
@@ -107,13 +132,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="showSection('depositHistory')">Deposit History</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" onclick="showSection('flowers')">Flowers</a>
+            <li id="flower-user" class="nav-item">
+                
             </li>
-            <li class="nav-item">
+            <li id="contact_user" class="nav-item">
                 <a class="nav-link" href="#" onclick="showSection('contactMessages')">Contact Messages</a>
             </li>
-            <li class="nav-item">
+            <li id="review_user" class="nav-item">
                 <a class="nav-link" href="#" onclick="showSection('Reviews')">All Reviews</a>
             </li>
         </ul>
@@ -137,24 +162,9 @@
             <h4>Profile</h4>
             <p>Manage all Profile Information here.</p>
             <!-- Customer details or table -->
+<div id="profiles" class="text-center ">
 
-            <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Mobile</th>
-      <th scope="col">Image</th>
-      <th scope="col">Balance</th>
-    </tr>
-  </thead>
-  <tbody id="Profiles">
-    <tr>
-      
-    </tr>
-    
-  </tbody>
-</table>
+</div>
         </div>
         <div id="customers" class="dashboard-section">
             <h4>Customers</h4>
@@ -229,6 +239,7 @@
         <div id="flowers" class="dashboard-section" style="display:none;">
             <h4>Flowers</h4>
             <p>Manage flowers inventory here.</p>
+            <a class="btn btn-danger mt-3 mb-3" href="">Add Flower</a>
             <!-- Flowers table or inventory -->
                            <table class="table">
   <thead>

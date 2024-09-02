@@ -1,9 +1,40 @@
 // Function to fetch data from the Dashboard API
+const handleUser = () => {
+    const token = localStorage.getItem("token");
 
-const handleDashboard = () => {
+    fetch('http://127.0.0.1:8000/coustomer/userdetails/', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Token ${token}`,
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.is_superuser) {
+                // Show admin-specific content
+                handleAdminDashboard();
+                document.getElementById("admin_user").innerHTML = "Admin Dashboard";
+                document.getElementById("customer_user").innerHTML = ` <a class="nav - link active" href="#" onclick="showSection('customers')">Customers</a>`
+                document.getElementById("flower-user").innerHTML = ` <a class="nav-link" href="#" onclick="showSection('flowers')">Flowers</a>`
+                document.getElementById("contact_user").innerHTML = ` <a class="nav-link" href="#" onclick="showSection('contactMessages')">Contact Messages</a>`
+                document.getElementById("review_user").innerHTML = ` <a class="nav-link" href="#" onclick="showSection('Reviews')">All Reviews</a>`
+            } else {
+                // Show normal user content
+                loadUserDashboard();
+                document.getElementById("admin_user").innerHTML = "User Dashboard";
+                document.getElementById("customer_user").innerHTML = "";
+                document.getElementById("flower-user").innerHTML = "";
+                document.getElementById("contact_user").innerHTML = "";
+                document.getElementById("review_user").innerHTML = "";
+            }
+        })
+}
+
+const handleAdminDashboard = () => {
     const token = localStorage.getItem("token");
     
-    fetch("https://blossomcart.onrender.com/coustomer/dashboard/", {
+    fetch("http://127.0.0.1:8000/coustomer/dashboard/", {
         method: "GET",
         headers: {
             'Authorization': `Token ${token}`,
@@ -12,13 +43,33 @@ const handleDashboard = () => {
     })
         .then((res) => res.json())
         .then((data) => {
-            if(data.is_superuser){}
+            console.log(data);
                 loadOrders(data.orders);
                 loadDeposit(data.deposite);
                 loadCoustomer(data.coustomer);
                 loadflowers(data.flower);
                 loadContact(data.contactus);
                 loadAllReview(data.review);  
+                loadProfile(data.user);
+        });
+}
+
+
+const loadUserDashboard = () => {
+    const token = localStorage.getItem("token");
+
+    fetch("http://127.0.0.1:8000/coustomer/dashboard/", {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${token}`,
+            "content-type": "application/json"
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            loadProfile(data.user);
+            loadOrders(data.orders);
+            loadDeposit(data.deposite);
         });
 }
 
@@ -147,7 +198,35 @@ const loadAllReview = (items) => {
 
 
 
-handleDashboard();
+const loadProfile = (items) => {
+    const parent = document.getElementById("profiles")
+        
+    parent.innerHTML = `
+       <img src="images/profile.webp" alt="Profile Picture" class="profile-img">
+                <div class="profile-info">
+                    <h5>${items.username}</h5>
+                    <h2>${items.first_name} ${items.last_name}</h2>
+                    <p>${items.email}</p>
+                    <p>${items.date_joined}</p>
+                </div>
+    `;
+    
+
+};
+
+
+
+
+
+
+
+
+
+
+handleUser();
+
+
+
 
 
 
