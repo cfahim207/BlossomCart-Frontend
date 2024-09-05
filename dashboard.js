@@ -75,7 +75,7 @@ const loadUserDashboard = () => {
 
 const loadCoustomer = (items) => {
     items.forEach((item) => {
-        console.log(item);
+        
         const parent = document.getElementById("Coustomers")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -94,7 +94,7 @@ const loadCoustomer = (items) => {
 }
 const loadOrders = (items) => {
     items.forEach((item) => {
-        console.log(item);
+        
         const parent = document.getElementById("orders")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -114,7 +114,7 @@ const loadOrders = (items) => {
 
 const loadDeposit = (items) => {
     items.forEach((item) => {
-        console.log(item);
+        
         const parent = document.getElementById("deposits")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -131,7 +131,7 @@ const loadDeposit = (items) => {
 }
 const loadflowers = (items) => {
     items.forEach((item) => {
-        console.log(item);
+       
         const parent = document.getElementById("flowerDetails")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -158,7 +158,7 @@ const loadflowers = (items) => {
 
 const loadContact = (items) => {
     items.forEach((item) => {
-        console.log(item);
+       
         const parent = document.getElementById("contactUs")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -175,7 +175,7 @@ const loadContact = (items) => {
 };
 const loadAllReview = (items) => {
     items.forEach((item) => {
-        console.log(item);
+        
         const parent = document.getElementById("AllReview")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -215,15 +215,107 @@ const loadProfile = (items) => {
 };
 
 
+const handleCategory = () => {
+    fetch("http://127.0.0.1:8000/flower/category/")
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((item) => {
+                const parent = document.getElementById("category");
+                const option = document.createElement("option");
+                option.value = item.id;
+                option.innerText = item.name;
+                parent.appendChild(option);
+            ;
+                
+            });
+        });
+};
+
+
+const handlecolor = () => {
+    fetch("http://127.0.0.1:8000/flower/color/")
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((item) => {
+                const parent = document.getElementById("color");
+                const option = document.createElement("option");
+                option.value = item.id;
+                option.innerText = item.name;
+                parent.appendChild(option);
+            ;
+                
+            });
+        });
+};
 
 
 
+handleAddFlower = async (event) => {
+    event.preventDefault();
+    const selectedCategory = Array.from(document.getElementById("category").selectedOptions).map(option => 
+    option.value
+    )
+    const selectedcolor = Array.from(document.getElementById("color").selectedOptions).map(option => 
+    option.value
+    )
+    
+    const name = getdata("name");
+    const price = getdata("price");
+
+    const image_file = document.getElementById("flower_image").files[0];
+    if (image_file) {
+        const imgFormData = new FormData();
+        imgFormData.append('image', image_file);
+        const imgbbResponse = await fetch('https://api.imgbb.com/1/upload?key=5cb9b4e07adda01b2e7f1ca548a925bc', {
+            method: 'POST',
+            body: imgFormData
+        });
+        const imgbbData = await imgbbResponse.json();
+        if (imgbbData.status === 200) {
+            console.log("inside");
+            imageUrl = imgbbData.data.url;
+            console.log(imageUrl);
+        } else {
+            alert('Image upload failed!');
+            return;
+        }
+    }
+    const flowerData = {
+        category: selectedCategory,
+        color: selectedcolor,
+        image: imageUrl,
+        name: name,
+        price: price,
+    }
+    console.log(flowerData);
+    
+
+    fetch("http://127.0.0.1:8000/flower/list/", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(flowerData),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+
+            if (data) {
+                alert("Successfully add flower");
+            }
+            
+        });
+}
 
 
+const getdata = (id) => {
+    const value = document.getElementById(id).value;
+    return value;
+}
 
 
 
 handleUser();
+handleCategory();
+handlecolor();
 
 
 
