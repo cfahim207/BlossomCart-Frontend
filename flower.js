@@ -111,7 +111,7 @@ const displayreview = (reviews) => {
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>${review.name}</h3>
-                      <h4>Flower: ${review.flower}</h4>
+                      <h4>Flower: ${review.flower_name}</h4>
                       <div class="stars">
                         ${review.rating}
                       </div>
