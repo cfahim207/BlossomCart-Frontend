@@ -209,6 +209,12 @@ const loadAllReview = (items) => {
 
 
 const loadProfile = (items) => {
+    const timestamp = `${items.date_joined}`;
+    const date = new Date(timestamp);
+
+    // Convert to human-readable format
+    const humanReadableDate = date.toLocaleString();
+
     const parent = document.getElementById("profiles")
     parent.innerHTML = `
        <img src="images/profile.webp" alt="Profile Picture" class="profile-img">
@@ -216,7 +222,7 @@ const loadProfile = (items) => {
                     <h5>Username: ${items.username}</h5>
                     <h2>Name: ${items.first_name} ${items.last_name}</h2>
                     <p>Email: ${items.email}</p>
-                    <p>Created On: ${items.date_joined}</p>
+                    <p>Created On: ${humanReadableDate}</p>
                 </div>
     `;
     
