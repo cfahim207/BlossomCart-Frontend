@@ -131,25 +131,25 @@ const loadDeposit = (items) => {
     
 }
 const loadflowers = (items) => {
-    items.forEach((item) => {
-       
+    items.forEach((flower) => {
+        console.log(flower);
         const parent = document.getElementById("flowerDetails")
         const tr = document.createElement("tr");
         tr.innerHTML = `
-                <td>${item.id}</td>
-                <td>${item.name}</td>
+                <td>${flower.id}</td>
+                <td>${flower.name}</td>
                 <td>
-                ${item?.category?.map((c) => {
-            return `${c}`
-        })}
+                ${flower?.category_display.map((c) => {
+                     return `${c}`
+                })}</td>
                 <td>
-                ${item?.color?.map((c) => {
+                ${flower?.color_display.map((c) => {
             return `${c}`
         })}
                 </td>
-                <td>${item.price}</td>
+                <td>${flower.price}</td>
                 
-                <td><button onclick="handleDeleteFlower(${item.id})" class="btn btn-danger mr-1">Delete</button><button class="btn btn-warning">Edit</button></td>
+                <td><button onclick="handleDeleteFlower(${flower.id})" class="btn btn-danger mr-1">Delete</button><button class="btn btn-warning">Edit</button></td>
         
         `;
         parent.appendChild(tr);
@@ -223,6 +223,7 @@ const handleCategory = () => {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
+                console.log(item);
                 const parent = document.getElementById("category");
                 const option = document.createElement("option");
                 option.value = item.id;
@@ -240,6 +241,7 @@ const handlecolor = () => {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
+                console.log(item);
                 const parent = document.getElementById("color");
                 const option = document.createElement("option");
                 option.value = item.id;
