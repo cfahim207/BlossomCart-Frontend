@@ -288,9 +288,7 @@ const handleAddFlower = async (event) => {
         });
         const imgbbData = await imgbbResponse.json();
         if (imgbbData.status === 200) {
-            console.log("inside");
             imageUrl = imgbbData.data.url;
-            console.log(imageUrl);
         } else {
             alert('Image upload failed!');
             return;
@@ -303,7 +301,6 @@ const handleAddFlower = async (event) => {
         name: name,
         price: price,
     }
-    console.log(JSON.stringify(flowerData));
     
 
     await fetch("https://blossomcart.onrender.com/flower/list/", {

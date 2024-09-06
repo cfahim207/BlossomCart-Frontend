@@ -45,8 +45,7 @@ const displayflower = (flowers) => {
                 <h6 class="price">
                   <b>Rs. ${flower.price} </b>
                 </h6>
-                 <button onclick="handleOrder(${flower.id})" class="btn btn-danger"><b> Buy Now</b></button>
-                 <button onclick="handlereview()" class="btn"><b>Give Review</b></button>
+                 <button onclick="handleOrder(${flower.flower_name})" class="btn btn-danger"><b> Buy Now</b></button>
               </div>
               
         
