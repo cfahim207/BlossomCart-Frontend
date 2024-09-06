@@ -31,13 +31,13 @@ const displayflower = (flowers) => {
                 <h3 ><b >${flower.name}</b> </h3>
                  <p>Category: 
 
-                ${flower?.category?.map((item) => {
+                ${flower?.category_display?.map((item) => {
                     return `<small class="text-danger"> ${item} </small>`;
                 })}
                 </p>
                  <p>Color:
 
-                ${flower?.color?.map((item) => {
+                ${flower?.color_display?.map((item) => {
                     return `<small class="text-danger"> ${item} </small>`;
                 })}
                 </p>

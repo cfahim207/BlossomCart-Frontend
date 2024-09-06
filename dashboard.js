@@ -11,6 +11,7 @@ const handleUser = () => {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.is_superuser) {
                 // Show admin-specific content
                 handleAdminDashboard();
@@ -147,6 +148,8 @@ const loadflowers = (items) => {
         })}
                 </td>
                 <td>${item.price}</td>
+                
+                <td><button onclick="handleDeleteFlower(${item.id})" class="btn btn-danger mr-1">Delete</button><button class="btn btn-warning">Edit</button></td>
         
         `;
         parent.appendChild(tr);
@@ -250,7 +253,7 @@ const handlecolor = () => {
 
 
 
-handleAddFlower = async (event) => {
+const handleAddFlower = async (event) => {
     event.preventDefault();
     const selectedCategory = Array.from(document.getElementById("category").selectedOptions).map(option => 
     option.value
@@ -263,6 +266,7 @@ handleAddFlower = async (event) => {
     const price = getdata("price");
 
     const image_file = document.getElementById("flower_image").files[0];
+    let imageUrl = "";
     if (image_file) {
         const imgFormData = new FormData();
         imgFormData.append('image', image_file);
@@ -287,10 +291,10 @@ handleAddFlower = async (event) => {
         name: name,
         price: price,
     }
-    console.log(flowerData);
+    console.log(JSON.stringify(flowerData));
     
 
-    fetch("http://127.0.0.1:8000/flower/list/", {
+    await fetch("http://127.0.0.1:8000/flower/list/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(flowerData),
@@ -300,6 +304,22 @@ handleAddFlower = async (event) => {
 
             if (data) {
                 alert("Successfully add flower");
+            }
+            
+        });
+}
+
+
+const handleDeleteFlower =(id) => {
+    fetch(`http://127.0.0.1:8000/flower/list/${id}/`, {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+
+            if (data) {
+                alert("Flower deleted successfully");
             }
             
         });
