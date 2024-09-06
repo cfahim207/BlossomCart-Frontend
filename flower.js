@@ -1,6 +1,6 @@
 const loadFlower = (findFlower) => {
   document.getElementById("flower-container").innerHTML = "";
-  let url = "http://127.0.0.1:8000/flower/list/"
+  let url = "https://blossomcart.onrender.com/flower/list/"
   if (findFlower) {
     url = `https://blossomcart.onrender.com/flower/list/?category=${findFlower}`}
   

@@ -219,7 +219,7 @@ const loadProfile = (items) => {
 
 
 const handleCategory = () => {
-    fetch("http://127.0.0.1:8000/flower/category/")
+    fetch("https://blossomcart.onrender.com/flower/category/")
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
@@ -236,7 +236,7 @@ const handleCategory = () => {
 
 
 const handlecolor = () => {
-    fetch("http://127.0.0.1:8000/flower/color/")
+    fetch("https://blossomcart.onrender.com/flower/color/")
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
@@ -294,7 +294,7 @@ const handleAddFlower = async (event) => {
     console.log(JSON.stringify(flowerData));
     
 
-    await fetch("http://127.0.0.1:8000/flower/list/", {
+    await fetch("https://blossomcart.onrender.com/flower/list/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(flowerData),
@@ -311,7 +311,7 @@ const handleAddFlower = async (event) => {
 
 
 const handleDeleteFlower =(id) => {
-    fetch(`http://127.0.0.1:8000/flower/list/${id}/`, {
+    fetch(`https://blossomcart.onrender.com/flower/list/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
     })
