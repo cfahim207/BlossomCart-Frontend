@@ -131,25 +131,26 @@ const loadDeposit = (items) => {
     
 }
 const loadflowers = (items) => {
-    items.forEach((flower) => {
+    items.forEach((item) => {
         console.log(flower);
         const parent = document.getElementById("flowerDetails")
         const tr = document.createElement("tr");
         tr.innerHTML = `
-                <td>${flower.id}</td>
-                <td>${flower.name}</td>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
                 <td>
-                ${flower?.category_display.map((c) => {
-                     return `${c}`
+                ${item?.category_display?.map((c) => {
+                    return ` ${c} `;
                 })}</td>
                 <td>
-                ${flower?.color_display.map((c) => {
-            return `${c}`
+               ${item?.color_display?.map((c) => {
+                   return ` ${c} `;
+               })}
         })}
                 </td>
-                <td>${flower.price}</td>
+                <td>${item.price}</td>
                 
-                <td><button onclick="handleDeleteFlower(${flower.id})" class="btn btn-danger mr-1">Delete</button><button class="btn btn-warning">Edit</button></td>
+                <td><button onclick="handleDeleteFlower(${item.id})" class="btn btn-danger mr-1">Delete</button><button class="btn btn-warning">Edit</button></td>
         
         `;
         parent.appendChild(tr);
