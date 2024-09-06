@@ -44,7 +44,6 @@ const handleAdminDashboard = () => {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
                 loadOrders(data.orders);
                 loadDeposit(data.deposite);
                 loadCoustomer(data.coustomer);
@@ -132,7 +131,7 @@ const loadDeposit = (items) => {
 }
 const loadflowers = (items) => {
     items.forEach((item) => {
-        console.log(flower);
+        console.log(item);
         const parent = document.getElementById("flowerDetails")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -140,11 +139,11 @@ const loadflowers = (items) => {
                 <td>${item.name}</td>
                 <td>
                 ${item?.category_display?.map((c) => {
-                    return ` ${c} `;
+                    return `${c}`;
                 })}</td>
                 <td>
                ${item?.color_display?.map((c) => {
-                   return ` ${c} `;
+                   return `${c}`;
                })}
         })}
                 </td>
@@ -162,7 +161,6 @@ const loadflowers = (items) => {
 
 const loadContact = (items) => {
     items.forEach((item) => {
-       
         const parent = document.getElementById("contactUs")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -204,7 +202,6 @@ const loadAllReview = (items) => {
 
 const loadProfile = (items) => {
     const parent = document.getElementById("profiles")
-        
     parent.innerHTML = `
        <img src="images/profile.webp" alt="Profile Picture" class="profile-img">
                 <div class="profile-info">
@@ -224,7 +221,6 @@ const handleCategory = () => {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
-                console.log(item);
                 const parent = document.getElementById("category");
                 const option = document.createElement("option");
                 option.value = item.id;
@@ -242,7 +238,6 @@ const handlecolor = () => {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
-                console.log(item);
                 const parent = document.getElementById("color");
                 const option = document.createElement("option");
                 option.value = item.id;
@@ -312,21 +307,6 @@ const handleAddFlower = async (event) => {
         });
 }
 
-
-const handleDeleteFlower =(id) => {
-    fetch(`https://blossomcart.onrender.com/flower/list/${id}`, {
-        method: "DELETE",
-        headers: { "content-type": "application/json" },
-    })
-        .then((res) => res.json())
-        .then((data) => {
-
-            if (data) {
-                alert("Flower deleted successfully");
-            }
-            
-        });
-}
 
 
 const getdata = (id) => {
