@@ -115,13 +115,17 @@ const loadOrders = (items) => {
 
 const loadDeposit = (items) => {
     items.forEach((item) => {
-        
+        const timestamp = `${item.timestamp}`;
+        const date = new Date(timestamp);
+
+        // Convert to human-readable format
+        const humanReadableDate = date.toLocaleString();
         const parent = document.getElementById("deposits")
         const tr = document.createElement("tr");
         tr.innerHTML = `
                 <td>${item.coustomer}</td>
                 <td>${item.amount}</td>
-                <td>${item.timestamp}</td>
+                <td>${humanReadableDate}</td>
         
         `;
         parent.appendChild(tr);
@@ -179,24 +183,26 @@ const loadContact = (items) => {
 };
 const loadAllReview = (items) => {
     items.forEach((item) => {
-        
-        const parent = document.getElementById("AllReview")
+
+        const timestamp = `${item.created}`;
+        const date = new Date(timestamp);
+
+        // Convert to human-readable format
+        const humanReadableDate = date.toLocaleString();
+
+        const parent = document.getElementById("AllReview");
         const tr = document.createElement("tr");
         tr.innerHTML = `
-                <td>${item.id}</td>
-                <td>${item.name}</td>
-                <td>${item.image}</td>
-                <td>${item.flower}</td>
-                <td>${item.body}</td>
-                <td>${item.rating}</td>
-                <td>${item.created}</td>
-                
-        
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.image}</td>
+            <td>${item.flower}</td>
+            <td>${item.body}</td>
+            <td>${item.rating}</td>
+            <td>${humanReadableDate}</td>  <!-- Corrected line -->
         `;
         parent.appendChild(tr);
-
-
-    })
+    });
 };
 
 

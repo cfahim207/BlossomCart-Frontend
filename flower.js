@@ -87,7 +87,13 @@ const loadReviews = () => {
 
 
 const displayreview = (reviews) => {
-    reviews.forEach((review) => {
+  reviews.forEach((review) => {
+      
+    const timestamp = `${item.created}`;
+        const date = new Date(timestamp);
+
+        // Convert to human-readable format
+        const humanReadableDate = date.toLocaleString();
         const parent = document.getElementById("Review");
         const div = document.createElement("div");
         div.classList.add("swiper-slide");
@@ -110,7 +116,7 @@ const displayreview = (reviews) => {
                         ${review.rating}
                       </div>
                       <div class="stars">
-                        <h6>${review.created}</h6>
+                        <h6>${humanReadableDate}</h6>
                       </div>
                     </div>
                   </div>
