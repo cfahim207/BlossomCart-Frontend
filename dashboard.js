@@ -44,6 +44,7 @@ const handleAdminDashboard = () => {
     })
         .then((res) => res.json())
         .then((data) => {
+            
                 loadOrders(data.orders);
                 loadDeposit(data.deposite);
                 loadCoustomer(data.coustomer);
@@ -145,7 +146,7 @@ const loadflowers = (items) => {
                ${item?.color_display?.map((c) => {
                    return `${c}`;
                })}
-        })}
+        
                 </td>
                 <td>${item.price}</td>
                 
@@ -161,6 +162,7 @@ const loadflowers = (items) => {
 
 const loadContact = (items) => {
     items.forEach((item) => {
+       
         const parent = document.getElementById("contactUs")
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -307,6 +309,21 @@ const handleAddFlower = async (event) => {
         });
 }
 
+
+const handleDeleteFlower =(id) => {
+    fetch(`https://blossomcart.onrender.com/flower/list/${id}`, {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+
+            if (data) {
+                alert("Flower deleted successfully");
+            }
+            
+        });
+}
 
 
 const getdata = (id) => {
