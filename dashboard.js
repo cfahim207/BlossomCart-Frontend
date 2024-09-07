@@ -320,9 +320,9 @@ const handleAddFlower = async (event) => {
 }
 
 
-const handleDeleteFlower = (id) => {
-    console.log(id);
-    fetch(`https://blossomcart.onrender.com/flower/list/${id}`, {
+const handleDeleteFlower = (flowerid) => {
+    console.log(flowerid);
+    fetch(`https://blossomcart.onrender.com/flower/list/${flowerid}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
     })
