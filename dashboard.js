@@ -321,7 +321,7 @@ const handleAddFlower = async (event) => {
 
 
 const handleDeleteFlower = (flowerid) => {
-    console.log(flowerid);
+    
     fetch(`https://blossomcart.onrender.com/flower/list/${flowerid}/`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
@@ -330,6 +330,7 @@ const handleDeleteFlower = (flowerid) => {
         .then((data) => {
 
             if (data) {
+                window.location.href = "dashboard.html";
                 alert("Flower deleted successfully");
             }
             
