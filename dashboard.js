@@ -265,14 +265,11 @@ const handlecolor = () => {
 
 
 
-
-
 const handleAddFlower = async (event) => {
     event.preventDefault();
     const selectedCategory = Array.from(document.getElementById("category").selectedOptions).map(option => 
     option.value
     )
-    
     const selectedcolor = Array.from(document.getElementById("color").selectedOptions).map(option => 
     option.value
     )
@@ -353,7 +350,6 @@ const getdata = (id) => {
 // Update flower
 
 const handleEditFlower = async (flowerId) => {
-    console.log('inside');
     // Fetch flower data by ID
     const response = await fetch(`https://blossomcart.onrender.com/flower/list/${flowerId}/`);
     const flower = await response.json();
@@ -363,11 +359,20 @@ const handleEditFlower = async (flowerId) => {
     document.getElementById("editFlowerName").value = flower.name;
     document.getElementById("editFlowerPrice").value = flower.price;
 
-    // Set categories
-    const selectedCategory = Array.from(document.getElementById("category").selectedOptions).map(option => option.value);
+    // Populate categories and colors select boxes (ensure options are loaded beforehand)
+    await populateCategoriesAndColors();  // Ensure categories and colors are loaded
 
-    // Set colors
-    const selectedColor = Array.from(document.getElementById("color").selectedOptions).map(option => option.value);
+    // Set categories (assuming flower.category contains an array of category IDs)
+    const categorySelect = document.getElementById("editFlowerCategory");
+    Array.from(categorySelect.options).forEach(option => {
+        option.selected = flower.category.includes(parseInt(option.value));  // Ensure the correct options are selected
+    });
+
+    // Set colors (assuming flower.color contains an array of color IDs)
+    const colorSelect = document.getElementById("editFlowerColor");
+    Array.from(colorSelect.options).forEach(option => {
+        option.selected = flower.color.includes(parseInt(option.value));  // Ensure the correct options are selected
+    });
 
     // Set image
     document.getElementById("editFlowerImagePreview").src = flower.image;
@@ -376,12 +381,16 @@ const handleEditFlower = async (flowerId) => {
     const updateFlowerModal = new bootstrap.Modal(document.getElementById('updateFlowerModal'));
     updateFlowerModal.show();
 
+    // Handle form submission
     document.getElementById("updateFlowerForm").addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const flowerId = document.getElementById("flowerId").value;
         const name = document.getElementById("editFlowerName").value;
         const price = document.getElementById("editFlowerPrice").value;
+        const selectedCategory = Array.from(document.getElementById("editFlowerCategory").selectedOptions).map(option => option.value);
+        const selectedColor = Array.from(document.getElementById("editFlowerColor").selectedOptions).map(option => option.value);
+
         let imageUrl = document.getElementById("editFlowerImagePreview").src;
         const imageFile = document.getElementById("editFlowerImage").files[0];
 
@@ -423,14 +432,40 @@ const handleEditFlower = async (flowerId) => {
                     alert("Flower updated successfully!");
                     location.reload();  // Optionally, refresh the page to reflect changes
                 }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert("Failed to update flower.");
             });
     });
-
 };
+
+// Helper function to populate categories and colors
+const populateCategoriesAndColors = async () => {
+    // Fetch categories and colors
+    const categoriesResponse = await fetch('https://blossomcart.onrender.com/flower/category/');
+    const colorsResponse = await fetch('https://blossomcart.onrender.com/flower/color/');
+
+    const categories = await categoriesResponse.json();
+    const colors = await colorsResponse.json();
+
+    // Populate category select
+    const categorySelect = document.getElementById("editFlowerCategory");
+    categorySelect.innerHTML = '';  // Clear previous options
+    categories.forEach(category => {
+        const option = document.createElement("option");
+        option.value = category.id;
+        option.text = category.name;
+        categorySelect.appendChild(option);
+    });
+
+    // Populate color select
+    const colorSelect = document.getElementById("editFlowerColor");
+    colorSelect.innerHTML = '';  // Clear previous options
+    colors.forEach(color => {
+        const option = document.createElement("option");
+        option.value = color.id;
+        option.text = color.name;
+        colorSelect.appendChild(option);
+    });
+};
+
 
 
 

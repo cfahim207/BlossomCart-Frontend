@@ -303,19 +303,18 @@
                     </div>
 
                     <div class="mb-3">
-                                 <label for="category">Choose Category:</label>
-                     <select id="category" name="category" multiple>
-    
-                    </select>
+                        <label for="editFlowerCategory" class="form-label">Category</label>
+                        <select id="editFlowerCategory" class="form-select" multiple>
+                            <!-- Populate categories dynamically -->
+                        </select>
                     </div>
 
                     <div class="mb-3">
-                        <label for="color">Choose Color:</label>
-                     <select id="color" name="color" multiple>
-    
-                  </select>
+                        <label for="editFlowerColor" class="form-label">Color</label>
+                        <select id="editFlowerColor" class="form-select" multiple>
+                            <!-- Populate colors dynamically -->
+                        </select>
                     </div>
-
 
                     <div class="mb-3">
                         <label for="editFlowerImage" class="form-label">Flower Image</label>
@@ -323,7 +322,8 @@
                         <img id="editFlowerImagePreview" class="img-fluid mt-2" alt="Flower Image" />
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Update Flower</button>
+                    <button type="submit" class="btn btn-danger">Update Flower</button>
+                    <button type="submit" class="btn btn-info">Close</button>
                 </form>
             </div>
         </div>
