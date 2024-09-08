@@ -278,6 +278,57 @@
     </div>
   </div>
 </div>
+
+
+<!-- Update Flower Modal -->
+<div class="modal fade" id="updateFlowerModal" tabindex="-1" aria-labelledby="updateFlowerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateFlowerModalLabel">Update Flower</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateFlowerForm">
+                    <input type="hidden" id="flowerId" />
+
+                    <div class="mb-3">
+                        <label for="editFlowerName" class="form-label">Flower Name</label>
+                        <input type="text" class="form-control" id="editFlowerName" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editFlowerPrice" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="editFlowerPrice" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editFlowerCategory" class="form-label">Category</label>
+                        <select id="editFlowerCategory" class="form-select" multiple>
+                            <!-- Populate categories dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editFlowerColor" class="form-label">Color</label>
+                        <select id="editFlowerColor" class="form-select" multiple>
+                            <!-- Populate colors dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editFlowerImage" class="form-label">Flower Image</label>
+                        <input type="file" class="form-control" id="editFlowerImage" />
+                        <img id="editFlowerImagePreview" class="img-fluid mt-2" alt="Flower Image" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Flower</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
             
             <!-- Flowers table or inventory -->
                            <table class="table">
