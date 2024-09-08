@@ -353,6 +353,7 @@ const handleEditFlower = async (flowerId) => {
     // Fetch flower data by ID
     const response = await fetch(`https://blossomcart.onrender.com/flower/list/${flowerId}/`);
     const flower = await response.json();
+    console.log('Fetched flower data:', flower);
 
     // Prefill the modal form
     document.getElementById("flowerId").value = flowerId;
@@ -365,13 +366,19 @@ const handleEditFlower = async (flowerId) => {
     // Set categories (assuming flower.category contains an array of category IDs)
     const categorySelect = document.getElementById("editFlowerCategory");
     Array.from(categorySelect.options).forEach(option => {
-        option.selected = flower.category.includes(parseInt(option.value));  // Ensure the correct options are selected
+        console.log('Checking category option:', option.value);  // Debugging
+        if (flower.category.includes(parseInt(option.value))) {
+            option.selected = true;
+        }
     });
 
     // Set colors (assuming flower.color contains an array of color IDs)
     const colorSelect = document.getElementById("editFlowerColor");
     Array.from(colorSelect.options).forEach(option => {
-        option.selected = flower.color.includes(parseInt(option.value));  // Ensure the correct options are selected
+        console.log('Checking color option:', option.value);  // Debugging
+        if (flower.color.includes(parseInt(option.value))) {
+            option.selected = true;
+        }
     });
 
     // Set image
@@ -444,6 +451,9 @@ const populateCategoriesAndColors = async () => {
 
     const categories = await categoriesResponse.json();
     const colors = await colorsResponse.json();
+    
+    console.log('Fetched categories:', categories);  // Debugging
+    console.log('Fetched colors:', colors);  // Debugging
 
     // Populate category select
     const categorySelect = document.getElementById("editFlowerCategory");
