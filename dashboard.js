@@ -265,11 +265,14 @@ const handlecolor = () => {
 
 
 
+
+
 const handleAddFlower = async (event) => {
     event.preventDefault();
     const selectedCategory = Array.from(document.getElementById("category").selectedOptions).map(option => 
     option.value
     )
+    
     const selectedcolor = Array.from(document.getElementById("color").selectedOptions).map(option => 
     option.value
     )
@@ -350,6 +353,7 @@ const getdata = (id) => {
 // Update flower
 
 const handleEditFlower = async (flowerId) => {
+    console.log('inside');
     // Fetch flower data by ID
     const response = await fetch(`https://blossomcart.onrender.com/flower/list/${flowerId}/`);
     const flower = await response.json();
@@ -360,20 +364,10 @@ const handleEditFlower = async (flowerId) => {
     document.getElementById("editFlowerPrice").value = flower.price;
 
     // Set categories
-    const categorySelect = document.getElementById("editFlowerCategory");
-    Array.from(categorySelect.options).forEach(option => {
-        if (flower.category.includes(parseInt(option.value))) {
-            option.selected = true;
-        }
-    });
+    const selectedCategory = Array.from(document.getElementById("category").selectedOptions).map(option => option.value);
 
     // Set colors
-    const colorSelect = document.getElementById("editFlowerColor");
-    Array.from(colorSelect.options).forEach(option => {
-        if (flower.color.includes(parseInt(option.value))) {
-            option.selected = true;
-        }
-    });
+    const selectedColor = Array.from(document.getElementById("color").selectedOptions).map(option => option.value);
 
     // Set image
     document.getElementById("editFlowerImagePreview").src = flower.image;
@@ -388,9 +382,6 @@ const handleEditFlower = async (flowerId) => {
         const flowerId = document.getElementById("flowerId").value;
         const name = document.getElementById("editFlowerName").value;
         const price = document.getElementById("editFlowerPrice").value;
-        const selectedCategory = Array.from(document.getElementById("editFlowerCategory").selectedOptions).map(option => option.value);
-        const selectedColor = Array.from(document.getElementById("editFlowerColor").selectedOptions).map(option => option.value);
-
         let imageUrl = document.getElementById("editFlowerImagePreview").src;
         const imageFile = document.getElementById("editFlowerImage").files[0];
 
