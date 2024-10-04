@@ -122,7 +122,7 @@ const handledeposit = (event) => {
     if (token) {
 
         if (amount >= 500) {
-            fetch("https://blossomcart.onrender.com/coustomer/deposite/", {
+            fetch("https://blossom-cart-8wo2.vercel.app/coustomer/deposite/", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(data),
