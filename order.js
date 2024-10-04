@@ -7,7 +7,7 @@ const handleOrder = (id) => {
     }
     console.log(data)
     if (token) {
-        fetch("https://blossomcart.onrender.com/order/list/", {
+        fetch("https://blossom-cart-8wo2.vercel.app/order/list/", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

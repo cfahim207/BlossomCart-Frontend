@@ -2,7 +2,7 @@
 const handleUser = () => {
     const token = localStorage.getItem("token");
 
-    fetch('https://blossomcart.onrender.com/coustomer/userdetails/', {
+    fetch('https://blossom-cart-8wo2.vercel.app/coustomer/userdetails/', {
         method: 'GET',
         headers: {
             'Authorization': `Token ${token}`,
@@ -35,7 +35,7 @@ const handleUser = () => {
 const handleAdminDashboard = () => {
     const token = localStorage.getItem("token");
     
-    fetch("https://blossomcart.onrender.com/coustomer/dashboard/", {
+    fetch("https://blossom-cart-8wo2.vercel.app/coustomer/dashboard/", {
         method: "GET",
         headers: {
             'Authorization': `Token ${token}`,
@@ -59,7 +59,7 @@ const handleAdminDashboard = () => {
 const loadUserDashboard = () => {
     const token = localStorage.getItem("token");
 
-    fetch("https://blossomcart.onrender.com/coustomer/dashboard/", {
+    fetch("https://blossom-cart-8wo2.vercel.app/coustomer/dashboard/", {
         method: "GET",
         headers: {
             'Authorization': `Token ${token}`,
@@ -231,7 +231,7 @@ const loadProfile = (items) => {
 
 
 const handleCategory = () => {
-    fetch("https://blossomcart.onrender.com/flower/category/")
+    fetch("https://blossom-cart-8wo2.vercel.app/flower/category/")
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
@@ -248,7 +248,7 @@ const handleCategory = () => {
 
 
 const handlecolor = () => {
-    fetch("https://blossomcart.onrender.com/flower/color/")
+    fetch("https://blossom-cart-8wo2.vercel.app/flower/color/")
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
@@ -303,7 +303,7 @@ const handleAddFlower = async (event) => {
     }
     
 
-    await fetch("https://blossomcart.onrender.com/flower/list/", {
+    await fetch("https://blossom-cart-8wo2.vercel.app/flower/list/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(flowerData),
@@ -322,7 +322,7 @@ const handleAddFlower = async (event) => {
 
 const handleDeleteFlower = (flowerid) => {
     
-    fetch(`https://blossomcart.onrender.com/flower/list/${flowerid}/`, {
+    fetch(`https://blossom-cart-8wo2.vercel.app/flower/list/${flowerid}/`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
     })
@@ -351,7 +351,7 @@ const getdata = (id) => {
 
 const handleEditFlower = async (flowerId) => {
     // Fetch flower data by ID
-    const response = await fetch(`https://blossomcart.onrender.com/flower/list/${flowerId}/`);
+    const response = await fetch(`https://blossom-cart-8wo2.vercel.app/flower/list/${flowerId}/`);
     const flower = await response.json();
     console.log('Fetched flower data:', flower);
 
@@ -440,18 +440,19 @@ const handleEditFlower = async (flowerId) => {
                     location.reload();  // Optionally, refresh the page to reflect changes
                 }
             });
+        
     });
 };
 
 // Helper function to populate categories and colors
 const populateCategoriesAndColors = async () => {
     // Fetch categories and colors
-    const categoriesResponse = await fetch('https://blossomcart.onrender.com/flower/category/');
-    const colorsResponse = await fetch('https://blossomcart.onrender.com/flower/color/');
+    const categoriesResponse = await fetch('https://blossom-cart-8wo2.vercel.app/flower/category/');
+    const colorsResponse = await fetch('https://blossom-cart-8wo2.vercel.app/flower/color/');
 
     const categories = await categoriesResponse.json();
     const colors = await colorsResponse.json();
-    
+
     console.log('Fetched categories:', categories);  // Debugging
     console.log('Fetched colors:', colors);  // Debugging
 

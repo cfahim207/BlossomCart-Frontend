@@ -20,7 +20,7 @@ const handleregistration = (event) => {
             )
         ) {
             console.log(JSON.stringify(info));
-            fetch("https://blossomcart.onrender.com/coustomer/register/", {
+            fetch("https://blossom-cart-8wo2.vercel.app/coustomer/register/", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(info),
@@ -65,7 +65,7 @@ const handleLogin = (event) => {
     
     if ((username, password)) {
 
-        fetch("https://blossomcart.onrender.com/coustomer/login/", {
+        fetch("https://blossom-cart-8wo2.vercel.app/coustomer/login/", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ username, password }),
@@ -88,7 +88,7 @@ const handleLogin = (event) => {
 const handlelogOut = () => {
     const token = localStorage.getItem("token");
 
-    fetch("https://blossomcart.onrender.com/coustomer/logout/", {
+    fetch("https://blossom-cart-8wo2.vercel.app/coustomer/logout/", {
         method: "POST",
         headers: {
             Authorization: `Token ${token}`,

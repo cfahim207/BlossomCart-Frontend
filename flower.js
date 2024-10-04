@@ -1,8 +1,8 @@
 const loadFlower = (findFlower) => {
   document.getElementById("flower-container").innerHTML = "";
-  let url = "https://blossomcart.onrender.com/flower/list/"
+  let url = "https://blossom-cart-8wo2.vercel.app/flower/list/"
   if (findFlower) {
-    url = `https://blossomcart.onrender.com/flower/list/?category=${findFlower}`}
+    url = `https://blossom-cart-8wo2.vercel.app/flower/list/?category=${findFlower}`}
   
   fetch(url)
     .then((res) => res.json())
@@ -60,7 +60,7 @@ const displayflower = (flowers) => {
 // load Category
 
 const loadCategory = () => {
-  fetch("https://blossomcart.onrender.com/flower/category/")
+  fetch("https://blossom-cart-8wo2.vercel.app/flower/category/")
         .then((res) => res.json())
         .then((data) => {
             data.forEach((item) => {
@@ -78,7 +78,7 @@ const loadCategory = () => {
 };
 
 const loadReviews = () => {
-  fetch("https://blossomcart.onrender.com/flower/review/")
+  fetch("https://blossom-cart-8wo2.vercel.app/flower/review/")
         .then((res) => res.json())
         .then((data) => displayreview(data));
 
@@ -144,7 +144,7 @@ const handlecontact = (event) => {
   const info = {
     name,phone,problem,
   };
-  fetch("https://blossomcart.onrender.com/contact_us/", {
+  fetch("https://blossom-cart-8wo2.vercel.app/contact_us/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(info),
@@ -170,7 +170,7 @@ const getvalue = (id) => {
 // coustomer
 
 const loadCoustomer = (id) => {
-  fetch(`https://blossomcart.onrender.com/coustomer/list/?id=${id}`)
+  fetch(`https://blossom-cart-8wo2.vercel.app/coustomer/list/?id=${id}`)
       .then((res) => res.json())
       .then((data) => displayCoustomer(data));
   
